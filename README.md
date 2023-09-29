@@ -2,4 +2,5 @@
 
 ### БАЗОВЫЕ КОМАНДЫ
 #### при создании нового проекта, необходимо использовать команду #
-> django-admin startproject socialnetwork
+> django-admin startproject nameproject
+вместо nameproject можно использоватьь любое имя для всшего проекта
