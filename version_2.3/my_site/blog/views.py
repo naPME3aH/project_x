@@ -62,8 +62,8 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         return False
     
-def chat(request):
-    return render(request, 'blog/chat_app.html', {'title': 'Чат'})
+# def chat(request):
+#     return render(request, 'blog/chat_app.html', {'title': 'Чат'})
 
 
 def about(request):

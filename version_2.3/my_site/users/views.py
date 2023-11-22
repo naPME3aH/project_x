@@ -40,3 +40,8 @@ def profile(request):
     }
 
     return render(request, 'users/profile.html', context)
+
+def profileuser(request):
+    # функция отображения профилей пользователей
+    # доделать
+    return render(request, 'users/profileuser.html')
