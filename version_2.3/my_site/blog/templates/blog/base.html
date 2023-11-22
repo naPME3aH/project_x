@@ -30,7 +30,7 @@
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link " href="{% url 'blog-home' %}">Главная</a>
-              <a class="nav-item nav-link " href="{% url 'blog-chat' %}">Чат</a>
+              <!-- <a class="nav-item nav-link " href="{% url 'blog-chat' %}">Чат</a> -->
               <a class="nav-item nav-link" href="{% url 'blog-about' %}">О клубе</a>
             </div>
             <!-- Правая часть навигационной панели -->
@@ -63,12 +63,13 @@
         <div class="col-md-4">
           <div class="content-section">
             <h3>Разделы</h3>
-            <p class='text-muted'>новости и события
+            <p class='text-muted'>Новости и события
               <ul class="list-group">
-                <li class="list-group-item list-group-item-light">Новые записи</li>
-                <li class="list-group-item list-group-item-light">Объявления</li>
+                <!-- <li class="list-group-item list-group-item-light">Новые записи</li> -->
+                <li class="list-group-item list-group-item-light" >Объявления</li>
+                <!-- возможное изменение <li class="list-group-item list-group-item-light" ><a class="nav-item nav-link" href="{% url 'profile' %}">Объявления</a></li>--> 
                 <li class="list-group-item list-group-item-light">Соревнования</li>
-                <li class="list-group-item list-group-item-light">Встречи участников</li>
+                <!-- <li class="list-group-item list-group-item-light">Встречи участников</li> -->
               </ul>
             </p>
           </div>
