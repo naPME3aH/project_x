@@ -1,16 +1,19 @@
-{% extends "blog/base.html" %}
-{% block content %}
-    {% for post in posts %}
-        <article class="media content-section">
-          <!-- <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}"> -->
-          <div class="media-body">
-            <div class="article-metadata">
-              <!-- <a class="mr-2" href="profileuser/{{ post.author }}">{{ post.author }}</a>
-              <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small> -->
-            </div>
-            <!-- <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content }}</p> -->
-          </div>
-        </article>
-    {% endfor %}
-{% endblock content %}
+{% extends 'blog/base.html' %} <!-- наследуем базовый шаблон -->
+{% block content %} <!-- определяем блок для содержимого -->
+  <!-- <h1>Объявления</h1> -->
+  <!-- <ul>  -->
+{% for update in updates %} <!-- цикл по всем постам с обновлениями -->
+  
+
+  <article class="media content-section">
+    <div class="media-body">
+      <div class="article-metadata">
+        <small class="text-muted">{{ update.date|date:"d.m.Y H:i" }}</small>
+      </div>
+      <h2 lass="article-title">{{ update.title }}</h2>
+      <p class="article-content">{{ update.content }}</p>
+    </div>
+  </article>
+{% endfor %}
+<!-- </ul> -->
+{% endblock %}

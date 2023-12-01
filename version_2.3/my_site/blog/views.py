@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.models import User # импортируем модель User
 from django.views.generic import (
     ListView,
     DetailView,
@@ -69,5 +70,9 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 def about(request):
     return render(request, 'blog/about.html', {'title': 'О клубе Python Bites'})
 
-def news(request):
-    return render(request, 'blog/news.html', {'title': 'Объявление'})
+def user_profile(request, username):
+    user = get_object_or_404(User, username=username) # получаем объект пользователя по его нику
+    # posts = Post.objects.filter(author=user).order_by('-date') # получаем все посты, написанные этим пользователем, в обратном хронологическом порядке
+    context = {'user': user} # создаем словарь с контекстом для шаблона
+    return render(request, 'blog/profileuser.html', context) # возвращаем ответ с отрендеренным шаблоном
+
