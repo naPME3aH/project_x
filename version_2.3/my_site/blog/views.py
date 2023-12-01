@@ -68,3 +68,6 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 def about(request):
     return render(request, 'blog/about.html', {'title': 'О клубе Python Bites'})
+
+def news(request):
+    return render(request, 'blog/news.html', {'title': 'Объявление'})
