@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчет о сканировании</title>
+    <link rel="stylesheet" href="{% static 'styles/report.css' %}">
+</head>
+<body>
+    <div class="header">
+        <h1>Отчет о сканировании</h1>
+        <a href="{% url 'patient_detail' report.patient_id %}" class="back-button">← Вернуться к пациенту</a>
+    </div>
+
+    <div class="content">
+        <!-- Информация о пациенте и изображение -->
+        <div class="patient-overview">
+            <div class="text-info">
+                <p><strong>Пациент:</strong> {{ patient_full_name }}</p>
+                <p><strong>Номер снимка:</strong> {{ scan_number }}</p>
+                <p><strong>Дата отчета:</strong> {{ report.report_date }}</p>
+                <p><strong>Диагноз:</strong> {{ translated_diagnosis }}</p>
+            </div>
+            <div class="image-container">
+                <img src="/media/{{ report.patient_id }}/{{ report.patient_id }}{{ report.scan_id }}.jpg" 
+                     alt="Скан изображения" class="scan-image">
+            </div>
+        </div>
+
+        <!-- Динамический отчет -->
+        <div class="generated-report">
+            {{ report.recommendations|safe }}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #c2b4f7; /* Цвет фона */
+    color: #333;
+}
+
+.header {
+    background-color: #c2b4f7;
+    color: black;
+    display: flex;
+    justify-content: space-between; /* Пространство между логотипом, поиском и кнопкой */
+    align-items: center;
+    padding: 0.5rem 2rem; /* Уменьшил верхний и нижний отступы */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap; /* Адаптация для узких экранов */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Отступ между логотипом и названием */
+    flex-shrink: 0; /* Логотип и название не сжимаются */
+}
+
+.logo {
+    width: 50px; /* Ширина логотипа */
+    height: 50px; /* Высота логотипа */
+}
+
+.header .logo h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: black;
+}
+
+.search-container {
+    flex-grow: 1; /* Занимает оставшееся пространство */
+    display: flex;
+    justify-content: center; /* Центрирует поиск */
+    margin: 0.5rem 0; /* Добавлен отступ сверху и снизу */
+}
+
+.search-input {
+    width: 100%;
+    max-width: 600px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    background-color: #c2b4f7; /* Цвет внутренности поиска */
+    color: black; /* Цвет текста */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.search-input::placeholder {
+    color: rgba(0, 0, 0, 0.6); /* Цвет текста внутри плейсхолдера */
+}
+
+.search-input:focus {
+    border-color: #444ce7;
+    outline: none;
+}
+
+.logout-button {
+    background-color: #444ce7;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0; /* Кнопка не сжимается */
+}
+
+.logout-button:hover {
+    background-color: #3339c4;
+}
+
+.main-content {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    text-align: center;
+}
+
+.main-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.patient-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.patient-card {
+    background-color: #5865f2;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between; /* Пространство между текстом и кнопкой */
+    align-items: center;
+}
+
+.patient-card .patient-info {
+    text-align: left; /* Выравнивание текста по левому краю */
+    flex: 1; /* Заполняет оставшееся пространство */
+}
+
+.patient-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.patient-card p {
+    margin: 0.5rem 0 0;
+    font-size: 0.9rem;
+}
+
+.analysis-button {
+    background-color: #444ce7;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.analysis-button:hover {
+    background-color: #3339c4;
+}
+
+.footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #c2b4f7;
+    color: black;
+    font-size: 0.9rem;
+}

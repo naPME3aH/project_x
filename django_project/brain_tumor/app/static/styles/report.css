@@ -1,0 +1,108 @@
+/* Общий стиль для страницы */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #c2b4f7;
+    color: #333;
+}
+
+/* Шапка страницы */
+.header {
+    background-color: #5865f2;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.back-button {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.back-button:hover {
+    text-decoration: underline;
+    color: #ddd;
+}
+
+/* Основное содержимое */
+.content {
+    max-width: 900px;
+    margin: 2rem auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+/* Информация о пациенте и изображение */
+.patient-overview {
+    display: flex;
+    align-items: center; /* Центрирование по вертикали */
+    justify-content: space-between; /* Распределение между текстом и изображением */
+    margin-bottom: 2rem;
+}
+
+.text-info {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #444;
+    margin-left: 5rem; /* Сдвиг вправо */
+}
+
+.text-info p {
+    margin: 0.5rem 0;
+}
+
+/* Скан-изображение */
+.image-container {
+    flex-shrink: 0;
+    margin-right: 5rem; /* Сдвиг левее */
+}
+
+.scan-image {
+    width: 100%;
+    max-width: 350px; /* Увеличенный размер */
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Динамический HTML-отчет */
+.generated-report {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    text-align: justify; /* Выравнивание текста по ширине */
+}
+
+.generated-report h3 {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    color: #5865f2;
+}
+
+.generated-report ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: justify; /* Выравнивание списка по ширине */
+}
+
+.generated-report li {
+    margin-bottom: 0.5rem;
+}
+
+.generated-report p {
+    margin-bottom: 1rem;
+    text-align: justify; /* Выравнивание текста по ширине */
+}

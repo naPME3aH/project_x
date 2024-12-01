@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали пациента</title>
+    <link rel="stylesheet" href="{% static 'styles/patient_detail.css' %}">
+    <style>
+        /* Стиль модального окна */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loading-overlay.active {
+            display: flex;
+        }
+
+        .loading-modal {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #444ce7;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-text {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Шапка пациента -->
+        <div class="patient-header">
+            <div class="patient-photo">
+                <div class="photo-placeholder">
+                    <span class="icon">👤</span>
+                </div>
+            </div>
+            <div class="patient-info">
+                <h1>{{ patient.last_name }} {{ patient.first_name }} {% if patient.middle_name %}{{ patient.middle_name }}{% endif %}</h1>
+                <p>Дата рождения: {{ patient.date_of_birth|date:"d.m.Y" }}</p>
+                <p>Пол: {{ patient.gender }}</p>
+            </div>
+        </div>
+
+        <!-- Добавляем кнопку возврата -->
+        <div class="back-to-patients">
+            <a href="{% url 'patient_list' %}" class="back-button">← Вернуться ко всем пациентам</a>
+        </div>
+
+        <!-- Блок с анализами -->
+        <div class="analysis-section">
+            <h2>Снимки</h2>
+            <div class="scan-container">
+                {% for scan in scans %}
+                <div class="scan-card">
+                    <img src="{{ scan.image_url }}" alt="Снимок" class="scan-image">
+                    <p class="scan-caption">
+                        <a href="{% url 'analyze_scan' id=patient.id scan_id=scan.id %}" class="analyze-link">
+                            Анализ скана от {{ scan.date|date:"d.m.Y" }}
+                        </a>
+                    </p>
+                </div>
+                {% empty %}
+                <p>Снимки не найдены.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Модальное окно загрузки -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-modal">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Пожалуйста, подождите...</p>
+        </div>
+    </div>
+
+    <script>
+        // Показываем модальное окно загрузки
+        document.querySelectorAll('.analyze-link').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); // Останавливаем переход по ссылке
+                document.getElementById('loadingOverlay').classList.add('active');
+                setTimeout(() => {
+                    window.location.href = event.target.href; // Переход через небольшую задержку
+                }, 500); // Время для отображения модального окна
+            });
+        });
+    </script>
+</body>
+</html>

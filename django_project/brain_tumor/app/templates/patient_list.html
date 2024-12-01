@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список пациентов</title>
+    <link rel="stylesheet" href="{% static 'styles/patient_list.css' %}">
+    <style>
+        /* Стиль сообщения "Пациент не найден" */
+        .no-results {
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Шапка с логотипом -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="{% static 'images/logo.png' %}" alt="Логотип" class="logo">
+            <h1>ИСИДА</h1>
+        </div>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Введите фамилию..." class="search-input">
+        </div>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="logout-button">Выйти</button>
+        </form>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <h2>Список пациентов</h2>
+        <!-- Контейнер для пациентов -->
+        <div id="patient-list" class="patient-list">
+            {% for patient in patients %}
+            <div class="patient-card">
+                <div class="patient-info">
+                    <h3>{{ patient.last_name }} {{ patient.first_name }} {{ patient.middle_name }}</h3>
+                    <p>Дата рождения: {{ patient.date_of_birth }}</p>
+                </div>
+                <a href="{% url 'patient_detail' patient.id %}" class="analysis-button">Анализ</a>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- Сообщение, если пациентов нет -->
+        <p id="no-results" class="no-results" style="display: none;">Пациент не найден</p>
+    </main>    
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <p>8-965-216-0621</p>
+    </footer>
+
+    <!-- Скрипт для фильтрации пациентов -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const searchInput = document.getElementById("search");
+            const patientCards = document.querySelectorAll(".patient-card");
+            const noResults = document.getElementById("no-results"); // Сообщение "Пациент не найден"
+
+            searchInput.addEventListener("input", () => {
+                const searchValue = searchInput.value.toLowerCase();
+                let hasResults = false;
+
+                patientCards.forEach(card => {
+                    const fullName = card.querySelector("h3").textContent.toLowerCase();
+                    if (fullName.includes(searchValue)) {
+                        card.style.display = "flex"; // Показываем карточку
+                        hasResults = true; // Есть хотя бы один результат
+                    } else {
+                        card.style.display = "none"; // Скрываем карточку
+                    }
+                });
+
+                // Если нет результатов, показываем сообщение
+                noResults.style.display = hasResults ? "none" : "block";
+            });
+        });
+    </script>
+</body>
+</html>

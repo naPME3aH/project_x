@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #c2b4f7;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.patient-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #5865f2;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.patient-photo .photo-placeholder {
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.photo-placeholder .icon {
+    font-size: 2.5rem;
+    color: #5865f2;
+}
+
+.patient-info h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.patient-info p {
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
+}
+
+.back-to-patients {
+    margin: 1rem 0; /* Отступ сверху и снизу */
+    text-align: left; /* Выравнивание по левому краю */
+}
+
+.back-button {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #444ce7;
+    background-color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #f0f0f0;
+    color: #3339c4;
+}
+
+.analysis-section {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.analysis-section h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.scan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, max-content)); /* Сетка с минимальным размером */
+    gap: 1.5rem; /* Отступы между карточками */
+    justify-content: center; /* Центрирование сетки */
+}
+
+.scan-container {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет переносить карточки на новую строку */
+    justify-content: center; /* Центрирует карточки в контейнере */
+    gap: 1.5rem; /* Расстояние между карточками */
+    margin-top: 1rem;
+}
+
+.scan-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Разделяет фото и подпись */
+    width: 250px; /* Фиксированная ширина карточки */
+    height: 300px; /* Фиксированная высота карточки */
+    margin: 0 auto; /* Центрирование карточек */
+}
+
+.scan-image {
+    width: auto; /* Автоматическая ширина */
+    height: auto; /* Пропорциональная высота */
+    max-width: 100%; /* Ограничение ширины изображения */
+    margin-bottom: 0.5rem; /* Отступ снизу */
+}
+
+.scan-caption {
+    color: #444ce7;
+    text-decoration: none;
+    font-size: 1rem; /* Увеличен размер текста */
+    font-weight: bold; /* Добавлен жирный шрифт для акцента */
+    margin-top: auto; /* Отправляет подпись вниз карточки */
+}
+
+.scan-caption a {
+    text-decoration: none;
+    color: #444ce7;
+}
+
+.scan-caption a:hover {
+    text-decoration: underline;
+    color: #3339c4; /* Цвет при наведении */
+}
+
+
+.scan-image {
+    max-width: 100%; /* Уменьшаем ширину изображения в два раза */
+    height: auto;   /* Сохраняем пропорции */
+    display: block; /* Убираем inline-стили для центрирования */
+    margin: 0 auto; /* Центрируем изображение */
+}

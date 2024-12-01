@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" href="{% static 'styles/login.css' %}">
+    <style>
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="login-container">
+        <div class="header">
+            <h1>ИСИДА</h1>
+        </div>
+        <div class="login-card">
+            <h2>ВХОД</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label for="username">Логин</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <!-- Ошибки формы -->
+                {% if form.non_field_errors %}
+                    <p class="error-message">
+                        {% for error in form.non_field_errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </p>
+                {% endif %}
+                <button type="submit" class="login-button">Войти</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
