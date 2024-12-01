@@ -21,14 +21,14 @@ SCANS_ROOT = os.path.join("F:/Project_x/scans")
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!pe+7c^)49dgh#0p=j8cm9gqm&ezg6o4@$lw1%6x3x&1w1u*k3'
+SECRET_KEY = 'KEY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "127.0.0.1",        # Локальный хост
-    "localhost",        # Локальный хост
+    "127.0.0.1",        
+    "localhost",        
     "192.168.1.2",      # Ваш локальный IP-адрес
 ]
 
@@ -84,11 +84,11 @@ ASGI_APPLICATION = 'brain_tumor.asgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'meddb',
-        'USER': 'medpguser',
-        'PASSWORD': 'pgpwd4med',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': 'name_DB',
+        'USER': 'USER',
+        'PASSWORD': 'PASSWORD',
+        'HOST': 'HOST',
+        'PORT': 'PORT',
     }
 }
 
